@@ -15,32 +15,32 @@ import javax.swing.ImageIcon;
  *
  */
 public class MessageEngine {
-    // ƒtƒHƒ“ƒg‚Ì‘å‚«‚³
+    // ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ì‘å‚«ï¿½ï¿½
     public static final int FONT_WIDTH = 16;
     public static final int FONT_HEIGHT = 22;
     
-    // ƒtƒHƒ“ƒg‚ÌF
+    // ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½ÌF
     public static final int WHITE = 0;
     public static final int RED = 160;
     public static final int GREEN = 320;
     public static final int BLUE = 480;
     
-    // ƒtƒHƒ“ƒgƒCƒ[ƒW
+    // ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Cï¿½ï¿½ï¿½[ï¿½W
     private Image fontImage;
-    // ‚©‚È¨À•W‚ÌƒnƒbƒVƒ…
+    // ï¿½ï¿½ï¿½Èï¿½ï¿½ï¿½ï¿½Wï¿½Ìƒnï¿½bï¿½Vï¿½ï¿½
     private HashMap kana2Pos;
     
-    // F
+    // ï¿½F
     private int color;
 
     public MessageEngine() {
-        // ƒtƒHƒ“ƒgƒCƒ[ƒW‚ğƒ[ƒh
+        // ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Cï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
         ImageIcon icon = new ImageIcon(getClass().getResource("image/font.gif"));
         fontImage = icon.getImage();
         
         color = WHITE;
         
-        // ‚©‚È¨ƒCƒ[ƒWÀ•W‚Ö‚ÌƒnƒbƒVƒ…‚ğì¬
+        // ï¿½ï¿½ï¿½Èï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½Wï¿½Ö‚Ìƒnï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ì¬
         kana2Pos = new HashMap();
         createHash();
     }
@@ -48,18 +48,18 @@ public class MessageEngine {
     public void setColor(int c) {     
         this.color = c;
         
-        // •Ï‚È’l‚¾‚Á‚½‚çWHITE‚É‚·‚é
+        // ï¿½Ï‚È’lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WHITEï¿½É‚ï¿½ï¿½ï¿½
         if (color != WHITE && color != RED && color != GREEN && color != BLUE) {
             this.color = WHITE;
         }
     }
     
     /**
-     * ƒƒbƒZ[ƒW‚ğ•`‰æ‚·‚é
-     * @param x XÀ•W
-     * @param y YÀ•W
-     * @param message ƒƒbƒZ[ƒW
-     * @param g •`‰æƒIƒuƒWƒFƒNƒg
+     * ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½
+     * @param x Xï¿½ï¿½ï¿½W
+     * @param y Yï¿½ï¿½ï¿½W
+     * @param message ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
+     * @param g ï¿½`ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
      */
     public void drawMessage(int x, int y, String message, Graphics g) {
         for (int i=0; i<message.length(); i++) {
@@ -70,11 +70,11 @@ public class MessageEngine {
     }
     
     /**
-     * •¶š‚ğ•`‰æ‚·‚é
-     * @param x XÀ•W
-     * @param y YÀ•W
-     * @param c •¶š
-     * @param g •`‰æƒIƒuƒWƒFƒNƒg
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½
+     * @param x Xï¿½ï¿½ï¿½W
+     * @param y Yï¿½ï¿½ï¿½W
+     * @param c ï¿½ï¿½ï¿½ï¿½
+     * @param g ï¿½`ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
      */
     public void drawCharacter(int x, int y, char c, Graphics g) {
         Point pos = (Point)kana2Pos.get(new Character(c));
@@ -83,200 +83,200 @@ public class MessageEngine {
     }
     
     /**
-     * •¶š‚©‚çÀ•W‚Ö‚ÌƒnƒbƒVƒ…‚ğì¬‚·‚é
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½Ö‚Ìƒnï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ì¬ï¿½ï¿½ï¿½ï¿½
      */
     private void createHash() {
-        kana2Pos.put(new Character('‚ '), new Point(0, 0));
-        kana2Pos.put(new Character('‚¢'), new Point(16, 0));
-        kana2Pos.put(new Character('‚¤'), new Point(32, 0));
-        kana2Pos.put(new Character('‚¦'), new Point(48, 0));
-        kana2Pos.put(new Character('‚¨'), new Point(64, 0));
+        kana2Pos.put(new Character('ã‚'), new Point(0, 0));
+        kana2Pos.put(new Character('ã„'), new Point(16, 0));
+        kana2Pos.put(new Character('ã†'), new Point(32, 0));
+        kana2Pos.put(new Character('ãˆ'), new Point(48, 0));
+        kana2Pos.put(new Character('ãŠ'), new Point(64, 0));
         
-        kana2Pos.put(new Character('‚©'), new Point(0, 22));
-        kana2Pos.put(new Character('‚«'), new Point(16, 22));
-        kana2Pos.put(new Character('‚­'), new Point(32, 22));
-        kana2Pos.put(new Character('‚¯'), new Point(48, 22));
-        kana2Pos.put(new Character('‚±'), new Point(64, 22));
+        kana2Pos.put(new Character('ã‹'), new Point(0, 22));
+        kana2Pos.put(new Character('ã'), new Point(16, 22));
+        kana2Pos.put(new Character('ã'), new Point(32, 22));
+        kana2Pos.put(new Character('ã‘'), new Point(48, 22));
+        kana2Pos.put(new Character('ã“'), new Point(64, 22));
         
-        kana2Pos.put(new Character('‚³'), new Point(0, 44));
-        kana2Pos.put(new Character('‚µ'), new Point(16, 44));
-        kana2Pos.put(new Character('‚·'), new Point(32, 44));
-        kana2Pos.put(new Character('‚¹'), new Point(48, 44));
-        kana2Pos.put(new Character('‚»'), new Point(64, 44));
+        kana2Pos.put(new Character('ã•'), new Point(0, 44));
+        kana2Pos.put(new Character('ã—'), new Point(16, 44));
+        kana2Pos.put(new Character('ã™'), new Point(32, 44));
+        kana2Pos.put(new Character('ã›'), new Point(48, 44));
+        kana2Pos.put(new Character('ã'), new Point(64, 44));
         
-        kana2Pos.put(new Character('‚½'), new Point(0, 66));
-        kana2Pos.put(new Character('‚¿'), new Point(16, 66));
-        kana2Pos.put(new Character('‚Â'), new Point(32, 66));
-        kana2Pos.put(new Character('‚Ä'), new Point(48, 66));
-        kana2Pos.put(new Character('‚Æ'), new Point(64, 66));
+        kana2Pos.put(new Character('ãŸ'), new Point(0, 66));
+        kana2Pos.put(new Character('ã¡'), new Point(16, 66));
+        kana2Pos.put(new Character('ã¤'), new Point(32, 66));
+        kana2Pos.put(new Character('ã¦'), new Point(48, 66));
+        kana2Pos.put(new Character('ã¨'), new Point(64, 66));
         
-        kana2Pos.put(new Character('‚È'), new Point(0, 88));
-        kana2Pos.put(new Character('‚É'), new Point(16, 88));
-        kana2Pos.put(new Character('‚Ê'), new Point(32, 88));
-        kana2Pos.put(new Character('‚Ë'), new Point(48, 88));
-        kana2Pos.put(new Character('‚Ì'), new Point(64, 88));
+        kana2Pos.put(new Character('ãª'), new Point(0, 88));
+        kana2Pos.put(new Character('ã«'), new Point(16, 88));
+        kana2Pos.put(new Character('ã¬'), new Point(32, 88));
+        kana2Pos.put(new Character('ã­'), new Point(48, 88));
+        kana2Pos.put(new Character('ã®'), new Point(64, 88));
         
-        kana2Pos.put(new Character('‚Í'), new Point(0, 110));
-        kana2Pos.put(new Character('‚Ğ'), new Point(16, 110));
-        kana2Pos.put(new Character('‚Ó'), new Point(32, 110));
-        kana2Pos.put(new Character('‚Ö'), new Point(48, 110));
-        kana2Pos.put(new Character('‚Ù'), new Point(64, 110));
+        kana2Pos.put(new Character('ã¯'), new Point(0, 110));
+        kana2Pos.put(new Character('ã²'), new Point(16, 110));
+        kana2Pos.put(new Character('ãµ'), new Point(32, 110));
+        kana2Pos.put(new Character('ã¸'), new Point(48, 110));
+        kana2Pos.put(new Character('ã»'), new Point(64, 110));
         
-        kana2Pos.put(new Character('‚Ü'), new Point(0, 132));
-        kana2Pos.put(new Character('‚İ'), new Point(16, 132));
-        kana2Pos.put(new Character('‚Ş'), new Point(32, 132));
-        kana2Pos.put(new Character('‚ß'), new Point(48, 132));
-        kana2Pos.put(new Character('‚à'), new Point(64, 132));
+        kana2Pos.put(new Character('ã¾'), new Point(0, 132));
+        kana2Pos.put(new Character('ã¿'), new Point(16, 132));
+        kana2Pos.put(new Character('ã‚€'), new Point(32, 132));
+        kana2Pos.put(new Character('ã‚'), new Point(48, 132));
+        kana2Pos.put(new Character('ã‚‚'), new Point(64, 132));
         
-        kana2Pos.put(new Character('‚â'), new Point(0, 154));
-        kana2Pos.put(new Character('‚ä'), new Point(16, 154));
-        kana2Pos.put(new Character('‚æ'), new Point(32, 154));
-        kana2Pos.put(new Character('‚í'), new Point(48, 154));
-        kana2Pos.put(new Character('‚ğ'), new Point(64, 154));
+        kana2Pos.put(new Character('ã‚„'), new Point(0, 154));
+        kana2Pos.put(new Character('ã‚†'), new Point(16, 154));
+        kana2Pos.put(new Character('ã‚ˆ'), new Point(32, 154));
+        kana2Pos.put(new Character('ã‚'), new Point(48, 154));
+        kana2Pos.put(new Character('ã‚’'), new Point(64, 154));
         
-        kana2Pos.put(new Character('‚ç'), new Point(0, 176));
-        kana2Pos.put(new Character('‚è'), new Point(16, 176));
-        kana2Pos.put(new Character('‚é'), new Point(32, 176));
-        kana2Pos.put(new Character('‚ê'), new Point(48, 176));
-        kana2Pos.put(new Character('‚ë'), new Point(64, 176));
+        kana2Pos.put(new Character('ã‚‰'), new Point(0, 176));
+        kana2Pos.put(new Character('ã‚Š'), new Point(16, 176));
+        kana2Pos.put(new Character('ã‚‹'), new Point(32, 176));
+        kana2Pos.put(new Character('ã‚Œ'), new Point(48, 176));
+        kana2Pos.put(new Character('ã‚'), new Point(64, 176));
         
-        kana2Pos.put(new Character('‚ñ'), new Point(0, 198));
-        kana2Pos.put(new Character('‚¡'), new Point(16, 198));
-        kana2Pos.put(new Character('‚Á'), new Point(32, 198));
-        kana2Pos.put(new Character('‚¥'), new Point(48, 198));
-        kana2Pos.put(new Character('@'), new Point(64, 198));
+        kana2Pos.put(new Character('ã‚“'), new Point(0, 198));
+        kana2Pos.put(new Character('ãƒ'), new Point(16, 198));
+        kana2Pos.put(new Character('ã£'), new Point(32, 198));
+        kana2Pos.put(new Character('ã‡'), new Point(48, 198));
+        kana2Pos.put(new Character(' '), new Point(64, 198));
         
-        kana2Pos.put(new Character('‚á'), new Point(0, 220));
-        kana2Pos.put(new Character('‚ã'), new Point(16, 220));
-        kana2Pos.put(new Character('‚å'), new Point(32, 220));
-        kana2Pos.put(new Character('A'), new Point(48, 220));
-        kana2Pos.put(new Character('B'), new Point(64, 220));
+        kana2Pos.put(new Character('ã‚ƒ'), new Point(0, 220));
+        kana2Pos.put(new Character('ã‚…'), new Point(16, 220));
+        kana2Pos.put(new Character('ã‚‡'), new Point(32, 220));
+        kana2Pos.put(new Character('ã€'), new Point(48, 220));
+        kana2Pos.put(new Character('ã€‚'), new Point(64, 220));
         
-        kana2Pos.put(new Character('‚ª'), new Point(0, 242));
-        kana2Pos.put(new Character('‚¬'), new Point(16, 242));
-        kana2Pos.put(new Character('‚®'), new Point(32, 242));
-        kana2Pos.put(new Character('‚°'), new Point(48, 242));
-        kana2Pos.put(new Character('‚²'), new Point(64, 242));
+        kana2Pos.put(new Character('ãŒ'), new Point(0, 242));
+        kana2Pos.put(new Character('ã'), new Point(16, 242));
+        kana2Pos.put(new Character('ã'), new Point(32, 242));
+        kana2Pos.put(new Character('ã’'), new Point(48, 242));
+        kana2Pos.put(new Character('ã”'), new Point(64, 242));
         
-        kana2Pos.put(new Character('‚´'), new Point(0, 264));
-        kana2Pos.put(new Character('‚¶'), new Point(16, 264));
-        kana2Pos.put(new Character('‚¸'), new Point(32, 264));
-        kana2Pos.put(new Character('‚º'), new Point(48, 264));
-        kana2Pos.put(new Character('‚¼'), new Point(64, 264));
+        kana2Pos.put(new Character('ã–'), new Point(0, 264));
+        kana2Pos.put(new Character('ã˜'), new Point(16, 264));
+        kana2Pos.put(new Character('ãš'), new Point(32, 264));
+        kana2Pos.put(new Character('ãœ'), new Point(48, 264));
+        kana2Pos.put(new Character('ã'), new Point(64, 264));
         
-        kana2Pos.put(new Character('‚¾'), new Point(0, 286));
-        kana2Pos.put(new Character('‚À'), new Point(16, 286));
-        kana2Pos.put(new Character('‚Ã'), new Point(32, 286));
-        kana2Pos.put(new Character('‚Å'), new Point(48, 286));
-        kana2Pos.put(new Character('‚Ç'), new Point(64, 286));
+        kana2Pos.put(new Character('ã '), new Point(0, 286));
+        kana2Pos.put(new Character('ã¢'), new Point(16, 286));
+        kana2Pos.put(new Character('ã¥'), new Point(32, 286));
+        kana2Pos.put(new Character('ã§'), new Point(48, 286));
+        kana2Pos.put(new Character('ã©'), new Point(64, 286));
         
-        kana2Pos.put(new Character('‚Î'), new Point(0, 308));
-        kana2Pos.put(new Character('‚Ñ'), new Point(16, 308));
-        kana2Pos.put(new Character('‚Ô'), new Point(32, 308));
-        kana2Pos.put(new Character('‚×'), new Point(48, 308));
-        kana2Pos.put(new Character('‚Ú'), new Point(64, 308));
+        kana2Pos.put(new Character('ã°'), new Point(0, 308));
+        kana2Pos.put(new Character('ã³'), new Point(16, 308));
+        kana2Pos.put(new Character('ã¶'), new Point(32, 308));
+        kana2Pos.put(new Character('ã¹'), new Point(48, 308));
+        kana2Pos.put(new Character('ã¼'), new Point(64, 308));
         
-        kana2Pos.put(new Character('‚Ï'), new Point(0, 330));
-        kana2Pos.put(new Character('‚Ò'), new Point(16, 330));
-        kana2Pos.put(new Character('‚Õ'), new Point(32, 330));
-        kana2Pos.put(new Character('‚Ø'), new Point(48, 330));
-        kana2Pos.put(new Character('‚Û'), new Point(64, 330));
+        kana2Pos.put(new Character('ã±'), new Point(0, 330));
+        kana2Pos.put(new Character('ã´'), new Point(16, 330));
+        kana2Pos.put(new Character('ã·'), new Point(32, 330));
+        kana2Pos.put(new Character('ãº'), new Point(48, 330));
+        kana2Pos.put(new Character('ã½'), new Point(64, 330));
         
-        kana2Pos.put(new Character('ƒA'), new Point(80, 0));
-        kana2Pos.put(new Character('ƒC'), new Point(96, 0));
-        kana2Pos.put(new Character('ƒE'), new Point(112, 0));
-        kana2Pos.put(new Character('ƒG'), new Point(128, 0));
-        kana2Pos.put(new Character('ƒI'), new Point(144, 0));
+        kana2Pos.put(new Character('ã‚¢'), new Point(80, 0));
+        kana2Pos.put(new Character('ã‚¤'), new Point(96, 0));
+        kana2Pos.put(new Character('ã‚¦'), new Point(112, 0));
+        kana2Pos.put(new Character('ã‚¨'), new Point(128, 0));
+        kana2Pos.put(new Character('ã‚ª'), new Point(144, 0));
         
-        kana2Pos.put(new Character('ƒJ'), new Point(80, 22));
-        kana2Pos.put(new Character('ƒL'), new Point(96, 22));
-        kana2Pos.put(new Character('ƒN'), new Point(112, 22));
-        kana2Pos.put(new Character('ƒP'), new Point(128, 22));
-        kana2Pos.put(new Character('ƒR'), new Point(144, 22));
+        kana2Pos.put(new Character('ã‚«'), new Point(80, 22));
+        kana2Pos.put(new Character('ã‚­'), new Point(96, 22));
+        kana2Pos.put(new Character('ã‚¯'), new Point(112, 22));
+        kana2Pos.put(new Character('ã‚±'), new Point(128, 22));
+        kana2Pos.put(new Character('ã‚³'), new Point(144, 22));
 
-        kana2Pos.put(new Character('ƒT'), new Point(80, 44));
-        kana2Pos.put(new Character('ƒV'), new Point(96, 44));
-        kana2Pos.put(new Character('ƒX'), new Point(112, 44));
-        kana2Pos.put(new Character('ƒZ'), new Point(128, 44));
-        kana2Pos.put(new Character('ƒ\'), new Point(144, 44));
+        kana2Pos.put(new Character('ã‚µ'), new Point(80, 44));
+        kana2Pos.put(new Character('ã‚·'), new Point(96, 44));
+        kana2Pos.put(new Character('ã‚¹'), new Point(112, 44));
+        kana2Pos.put(new Character('ã‚»'), new Point(128, 44));
+        kana2Pos.put(new Character('ã‚½'), new Point(144, 44));
         
-        kana2Pos.put(new Character('ƒ^'), new Point(80, 66));
-        kana2Pos.put(new Character('ƒ`'), new Point(96, 66));
-        kana2Pos.put(new Character('ƒc'), new Point(112, 66));
-        kana2Pos.put(new Character('ƒe'), new Point(128, 66));
-        kana2Pos.put(new Character('ƒg'), new Point(144, 66));
+        kana2Pos.put(new Character('ã‚¿'), new Point(80, 66));
+        kana2Pos.put(new Character('ãƒ'), new Point(96, 66));
+        kana2Pos.put(new Character('ãƒ„'), new Point(112, 66));
+        kana2Pos.put(new Character('ãƒ†'), new Point(128, 66));
+        kana2Pos.put(new Character('ãƒˆ'), new Point(144, 66));
         
-        kana2Pos.put(new Character('ƒi'), new Point(80, 88));
-        kana2Pos.put(new Character('ƒj'), new Point(96, 88));
-        kana2Pos.put(new Character('ƒk'), new Point(112, 88));
-        kana2Pos.put(new Character('ƒl'), new Point(128, 88));
-        kana2Pos.put(new Character('ƒm'), new Point(144, 88));
+        kana2Pos.put(new Character('ãƒŠ'), new Point(80, 88));
+        kana2Pos.put(new Character('ãƒ‹'), new Point(96, 88));
+        kana2Pos.put(new Character('ãƒŒ'), new Point(112, 88));
+        kana2Pos.put(new Character('ãƒ'), new Point(128, 88));
+        kana2Pos.put(new Character('ãƒ'), new Point(144, 88));
         
-        kana2Pos.put(new Character('ƒn'), new Point(80, 110));
-        kana2Pos.put(new Character('ƒq'), new Point(96, 110));
-        kana2Pos.put(new Character('ƒt'), new Point(112, 110));
-        kana2Pos.put(new Character('ƒw'), new Point(128, 110));
-        kana2Pos.put(new Character('ƒz'), new Point(144, 110));
+        kana2Pos.put(new Character('ãƒ'), new Point(80, 110));
+        kana2Pos.put(new Character('ãƒ’'), new Point(96, 110));
+        kana2Pos.put(new Character('ãƒ•'), new Point(112, 110));
+        kana2Pos.put(new Character('ãƒ˜'), new Point(128, 110));
+        kana2Pos.put(new Character('ãƒ›'), new Point(144, 110));
         
-        kana2Pos.put(new Character('ƒ}'), new Point(80, 132));
-        kana2Pos.put(new Character('ƒ~'), new Point(96, 132));
-        kana2Pos.put(new Character('ƒ€'), new Point(112, 132));
-        kana2Pos.put(new Character('ƒ'), new Point(128, 132));
-        kana2Pos.put(new Character('ƒ‚'), new Point(144, 132));
+        kana2Pos.put(new Character('ãƒ'), new Point(80, 132));
+        kana2Pos.put(new Character('ãƒŸ'), new Point(96, 132));
+        kana2Pos.put(new Character('ãƒ '), new Point(112, 132));
+        kana2Pos.put(new Character('ãƒ¡'), new Point(128, 132));
+        kana2Pos.put(new Character('ãƒ¢'), new Point(144, 132));
         
-        kana2Pos.put(new Character('ƒ„'), new Point(80, 154));
-        kana2Pos.put(new Character('ƒ†'), new Point(96, 154));
-        kana2Pos.put(new Character('ƒˆ'), new Point(112, 154));
-        kana2Pos.put(new Character('ƒ'), new Point(128, 154));
-        kana2Pos.put(new Character('ƒ’'), new Point(144, 154));
+        kana2Pos.put(new Character('ãƒ¤'), new Point(80, 154));
+        kana2Pos.put(new Character('ãƒ¦'), new Point(96, 154));
+        kana2Pos.put(new Character('ãƒ¨'), new Point(112, 154));
+        kana2Pos.put(new Character('ãƒ¯'), new Point(128, 154));
+        kana2Pos.put(new Character('ãƒ²'), new Point(144, 154));
         
-        kana2Pos.put(new Character('ƒ‰'), new Point(80, 176));
-        kana2Pos.put(new Character('ƒŠ'), new Point(96, 176));
-        kana2Pos.put(new Character('ƒ‹'), new Point(112, 176));
-        kana2Pos.put(new Character('ƒŒ'), new Point(128, 176));
-        kana2Pos.put(new Character('ƒ'), new Point(144, 176));
+        kana2Pos.put(new Character('ãƒ©'), new Point(80, 176));
+        kana2Pos.put(new Character('ãƒª'), new Point(96, 176));
+        kana2Pos.put(new Character('ãƒ«'), new Point(112, 176));
+        kana2Pos.put(new Character('ãƒ¬'), new Point(128, 176));
+        kana2Pos.put(new Character('ãƒ­'), new Point(144, 176));
         
-        kana2Pos.put(new Character('ƒ“'), new Point(80, 198));
-        kana2Pos.put(new Character('ƒB'), new Point(96, 198));
-        kana2Pos.put(new Character('ƒb'), new Point(112, 198));
-        kana2Pos.put(new Character('ƒF'), new Point(128, 198));
-        kana2Pos.put(new Character('u'), new Point(144, 198));
+        kana2Pos.put(new Character('ãƒ³'), new Point(80, 198));
+        kana2Pos.put(new Character('ã‚£'), new Point(96, 198));
+        kana2Pos.put(new Character('ãƒƒ'), new Point(112, 198));
+        kana2Pos.put(new Character('ã‚§'), new Point(128, 198));
+        kana2Pos.put(new Character('ã€Œ'), new Point(144, 198));
         
-        kana2Pos.put(new Character('ƒƒ'), new Point(80, 220));
-        kana2Pos.put(new Character('ƒ…'), new Point(96, 220));
-        kana2Pos.put(new Character('ƒ‡'), new Point(112, 220));
-        kana2Pos.put(new Character('['), new Point(128, 220));
-        kana2Pos.put(new Character('v'), new Point(144, 220));
+        kana2Pos.put(new Character('ãƒ£'), new Point(80, 220));
+        kana2Pos.put(new Character('ãƒ¥'), new Point(96, 220));
+        kana2Pos.put(new Character('ãƒ§'), new Point(112, 220));
+        kana2Pos.put(new Character('ãƒ¼'), new Point(128, 220));
+        kana2Pos.put(new Character('ã€'), new Point(144, 220));
         
-        kana2Pos.put(new Character('ƒK'), new Point(80, 242));
-        kana2Pos.put(new Character('ƒM'), new Point(96, 242));
-        kana2Pos.put(new Character('ƒO'), new Point(112, 242));
-        kana2Pos.put(new Character('ƒQ'), new Point(128, 242));
-        kana2Pos.put(new Character('ƒS'), new Point(144, 242));
+        kana2Pos.put(new Character('ã‚¬'), new Point(80, 242));
+        kana2Pos.put(new Character('ã‚®'), new Point(96, 242));
+        kana2Pos.put(new Character('ã‚°'), new Point(112, 242));
+        kana2Pos.put(new Character('ã‚²'), new Point(128, 242));
+        kana2Pos.put(new Character('ã‚´'), new Point(144, 242));
         
-        kana2Pos.put(new Character('ƒU'), new Point(80, 264));
-        kana2Pos.put(new Character('ƒW'), new Point(96, 264));
-        kana2Pos.put(new Character('ƒY'), new Point(112, 264));
-        kana2Pos.put(new Character('ƒ['), new Point(128, 264));
-        kana2Pos.put(new Character('ƒ]'), new Point(144, 264));
+        kana2Pos.put(new Character('ã‚¶'), new Point(80, 264));
+        kana2Pos.put(new Character('ã‚¸'), new Point(96, 264));
+        kana2Pos.put(new Character('ã‚º'), new Point(112, 264));
+        kana2Pos.put(new Character('ã‚¼'), new Point(128, 264));
+        kana2Pos.put(new Character('ã‚¾'), new Point(144, 264));
         
-        kana2Pos.put(new Character('ƒ_'), new Point(80, 286));
-        kana2Pos.put(new Character('ƒa'), new Point(96, 286));
-        kana2Pos.put(new Character('ƒd'), new Point(112, 286));
-        kana2Pos.put(new Character('ƒf'), new Point(128, 286));
-        kana2Pos.put(new Character('ƒh'), new Point(144, 286));
+        kana2Pos.put(new Character('ãƒ€'), new Point(80, 286));
+        kana2Pos.put(new Character('ãƒ‚'), new Point(96, 286));
+        kana2Pos.put(new Character('ãƒ…'), new Point(112, 286));
+        kana2Pos.put(new Character('ãƒ‡'), new Point(128, 286));
+        kana2Pos.put(new Character('ãƒ‰'), new Point(144, 286));
         
-        kana2Pos.put(new Character('ƒo'), new Point(80, 308));
-        kana2Pos.put(new Character('ƒr'), new Point(96, 308));
-        kana2Pos.put(new Character('ƒu'), new Point(112, 308));
-        kana2Pos.put(new Character('ƒx'), new Point(128, 308));
-        kana2Pos.put(new Character('ƒ{'), new Point(144, 308));
+        kana2Pos.put(new Character('ãƒ'), new Point(80, 308));
+        kana2Pos.put(new Character('ãƒ“'), new Point(96, 308));
+        kana2Pos.put(new Character('ãƒ–'), new Point(112, 308));
+        kana2Pos.put(new Character('ãƒ™'), new Point(128, 308));
+        kana2Pos.put(new Character('ãƒœ'), new Point(144, 308));
         
-        kana2Pos.put(new Character('ƒp'), new Point(80, 330));
-        kana2Pos.put(new Character('ƒs'), new Point(96, 330));
-        kana2Pos.put(new Character('ƒv'), new Point(112, 330));
-        kana2Pos.put(new Character('ƒy'), new Point(128, 330));
-        kana2Pos.put(new Character('ƒ|'), new Point(144, 330));
+        kana2Pos.put(new Character('ãƒ‘'), new Point(80, 330));
+        kana2Pos.put(new Character('ãƒ”'), new Point(96, 330));
+        kana2Pos.put(new Character('ãƒ—'), new Point(112, 330));
+        kana2Pos.put(new Character('ãƒš'), new Point(128, 330));
+        kana2Pos.put(new Character('ãƒ'), new Point(144, 330));
         
         kana2Pos.put(new Character('0'), new Point(0, 352));        
         kana2Pos.put(new Character('1'), new Point(16, 352));
@@ -289,35 +289,35 @@ public class MessageEngine {
         kana2Pos.put(new Character('8'), new Point(128, 352));
         kana2Pos.put(new Character('9'), new Point(144, 352));
         
-        kana2Pos.put(new Character('‚`'), new Point(0, 374));        
-        kana2Pos.put(new Character('‚a'), new Point(16, 374));
-        kana2Pos.put(new Character('‚b'), new Point(32, 374));
-        kana2Pos.put(new Character('‚c'), new Point(48, 374));
-        kana2Pos.put(new Character('‚d'), new Point(64, 374));
-        kana2Pos.put(new Character('‚e'), new Point(80, 374));
-        kana2Pos.put(new Character('‚f'), new Point(96, 374));
-        kana2Pos.put(new Character('‚g'), new Point(112, 374));
-        kana2Pos.put(new Character('‚h'), new Point(128, 374));
-        kana2Pos.put(new Character('‚i'), new Point(144, 374));
+        kana2Pos.put(new Character('A'), new Point(0, 374));        
+        kana2Pos.put(new Character('B'), new Point(16, 374));
+        kana2Pos.put(new Character('C'), new Point(32, 374));
+        kana2Pos.put(new Character('D'), new Point(48, 374));
+        kana2Pos.put(new Character('E'), new Point(64, 374));
+        kana2Pos.put(new Character('F'), new Point(80, 374));
+        kana2Pos.put(new Character('G'), new Point(96, 374));
+        kana2Pos.put(new Character('H'), new Point(112, 374));
+        kana2Pos.put(new Character('I'), new Point(128, 374));
+        kana2Pos.put(new Character('J'), new Point(144, 374));
         
-        kana2Pos.put(new Character('‚j'), new Point(0, 396));        
-        kana2Pos.put(new Character('‚k'), new Point(16, 396));
-        kana2Pos.put(new Character('‚l'), new Point(32, 396));
-        kana2Pos.put(new Character('‚m'), new Point(48, 396));
-        kana2Pos.put(new Character('‚n'), new Point(64, 396));
-        kana2Pos.put(new Character('‚o'), new Point(80, 396));
-        kana2Pos.put(new Character('‚p'), new Point(96, 396));
-        kana2Pos.put(new Character('‚q'), new Point(112, 396));
-        kana2Pos.put(new Character('‚r'), new Point(128, 396));
-        kana2Pos.put(new Character('‚s'), new Point(144, 396));
+        kana2Pos.put(new Character('K'), new Point(0, 396));        
+        kana2Pos.put(new Character('L'), new Point(16, 396));
+        kana2Pos.put(new Character('M'), new Point(32, 396));
+        kana2Pos.put(new Character('N'), new Point(48, 396));
+        kana2Pos.put(new Character('O'), new Point(64, 396));
+        kana2Pos.put(new Character('P'), new Point(80, 396));
+        kana2Pos.put(new Character('Q'), new Point(96, 396));
+        kana2Pos.put(new Character('R'), new Point(112, 396));
+        kana2Pos.put(new Character('S'), new Point(128, 396));
+        kana2Pos.put(new Character('T'), new Point(144, 396));
         
-        kana2Pos.put(new Character('‚t'), new Point(0, 418));        
-        kana2Pos.put(new Character('‚u'), new Point(16, 418));
-        kana2Pos.put(new Character('‚v'), new Point(32, 418));
-        kana2Pos.put(new Character('‚w'), new Point(48, 418));
-        kana2Pos.put(new Character('‚x'), new Point(64, 418));
-        kana2Pos.put(new Character('‚y'), new Point(80, 418));
-        kana2Pos.put(new Character('I'), new Point(96, 418));
-        kana2Pos.put(new Character('H'), new Point(112, 418));
+        kana2Pos.put(new Character('U'), new Point(0, 418));        
+        kana2Pos.put(new Character('V'), new Point(16, 418));
+        kana2Pos.put(new Character('W'), new Point(32, 418));
+        kana2Pos.put(new Character('X'), new Point(48, 418));
+        kana2Pos.put(new Character('Y'), new Point(64, 418));
+        kana2Pos.put(new Character('Z'), new Point(80, 418));
+        kana2Pos.put(new Character('ï¼'), new Point(96, 418));
+        kana2Pos.put(new Character('ï¼Ÿ'), new Point(112, 418));
     }
 }

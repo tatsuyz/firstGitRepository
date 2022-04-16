@@ -16,46 +16,46 @@ import javax.swing.ImageIcon;
  *
  */
 public class MessageWindow {
-    // ”’˜g‚Ì•
+    // ï¿½ï¿½ï¿½gï¿½Ì•ï¿½
     private static final int EDGE_WIDTH = 2;
 
-    // sŠÔ‚Ì‘å‚«‚³
+    // ï¿½sï¿½Ô‚Ì‘å‚«ï¿½ï¿½
     protected static final int LINE_HEIGHT = 8;
-    // 1s‚ÌÅ‘å•¶š”
+    // 1ï¿½sï¿½ÌÅ‘å•¶ï¿½ï¿½ï¿½ï¿½
     private static final int MAX_CHAR_IN_LINE = 20;
-    // 1ƒy[ƒW‚É•\¦‚Å‚«‚éÅ‘ås”
+    // 1ï¿½yï¿½[ï¿½Wï¿½É•\ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Å‘ï¿½sï¿½ï¿½
     private static final int MAX_LINES = 3;
-    // 1ƒy[ƒW‚É•\¦‚Å‚«‚éÅ‘å•¶š”
+    // 1ï¿½yï¿½[ï¿½Wï¿½É•\ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½Å‘å•¶ï¿½ï¿½ï¿½ï¿½
     private static final int MAX_CHAR_IN_PAGE = MAX_CHAR_IN_LINE * MAX_LINES;
 
-    // ˆê”ÔŠO‘¤‚Ì˜g
+    // ï¿½ï¿½ÔŠOï¿½ï¿½ï¿½Ì˜g
     private Rectangle rect;
-    // ˆê‚Â“à‘¤‚Ì˜gi”’‚¢˜gü‚ª‚Å‚«‚é‚æ‚¤‚Éj
+    // ï¿½ï¿½Â“ï¿½ï¿½ï¿½ï¿½Ì˜gï¿½iï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
     private Rectangle innerRect;
-    // ÀÛ‚ÉƒeƒLƒXƒg‚ğ•`‰æ‚·‚é˜g
+    // ï¿½ï¿½ï¿½Û‚Éƒeï¿½Lï¿½Xï¿½gï¿½ï¿½`ï¿½æ‚·ï¿½ï¿½g
     private Rectangle textRect;
 
-    // ƒƒbƒZ[ƒWƒEƒBƒ“ƒhƒE‚ğ•\¦’†‚©
+    // ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private boolean isVisible = false;
 
-    // ƒJ[ƒ\ƒ‹‚ÌƒAƒjƒ[ƒVƒ‡ƒ“GIF
+    // ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½ÌƒAï¿½jï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½GIF
     private Image cursorImage;
     
-    // ƒƒbƒZ[ƒW‚ğŠi”[‚µ‚½”z—ñ
+    // ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
     private char[] text = new char[128 * MAX_CHAR_IN_LINE];
-    // Å‘åƒy[ƒW
+    // ï¿½Å‘ï¿½yï¿½[ï¿½W
     private int maxPage;
-    // Œ»İ•\¦‚µ‚Ä‚¢‚éƒy[ƒW
+    // ï¿½ï¿½ï¿½İ•\ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½yï¿½[ï¿½W
     private int curPage = 0;
-    // •\¦‚µ‚½•¶š”
+    // ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private int curPos;
-    // Ÿ‚Ìƒy[ƒW‚Ö‚¢‚¯‚é‚©i¥‚ª•\¦‚³‚ê‚Ä‚ê‚Îtruej
+    // ï¿½ï¿½ï¿½Ìƒyï¿½[ï¿½Wï¿½Ö‚ï¿½ï¿½ï¿½ï¿½é‚©ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½trueï¿½j
     private boolean nextFlag = false;
 
-    // ƒƒbƒZ[ƒWƒGƒ“ƒWƒ“
+    // ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Gï¿½ï¿½ï¿½Wï¿½ï¿½
     private MessageEngine messageEngine;
 
-    // ƒeƒLƒXƒg‚ğ—¬‚·ƒ^ƒCƒ}[ƒ^ƒXƒN
+    // ï¿½eï¿½Lï¿½Xï¿½gï¿½ğ—¬‚ï¿½ï¿½^ï¿½Cï¿½}ï¿½[ï¿½^ï¿½Xï¿½N
     private Timer timer;
     private TimerTask task;
 
@@ -74,10 +74,10 @@ public class MessageWindow {
                 320,
                 120);
         
-        // ƒƒbƒZ[ƒWƒGƒ“ƒWƒ“‚ğì¬
+        // ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Gï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ì¬
         messageEngine = new MessageEngine();
 
-        // ƒJ[ƒ\ƒ‹ƒCƒ[ƒW‚ğƒ[ƒh
+        // ï¿½Jï¿½[ï¿½\ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
         ImageIcon icon = new ImageIcon(getClass().getResource("image/cursor.gif"));
         cursorImage = icon.getImage();
         
@@ -87,15 +87,15 @@ public class MessageWindow {
     public void draw(Graphics g) {
         if (isVisible == false) return;
         
-        // ˜g‚ğ•`‚­
+        // ï¿½gï¿½ï¿½`ï¿½ï¿½
         g.setColor(Color.WHITE);
         g.fillRect(rect.x, rect.y, rect.width, rect.height);
 
-        // “à‘¤‚Ì˜g‚ğ•`‚­
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ì˜gï¿½ï¿½`ï¿½ï¿½
         g.setColor(Color.BLACK);
         g.fillRect(innerRect.x, innerRect.y, innerRect.width, innerRect.height);
         
-        // Œ»İ‚Ìƒy[ƒWicurPagej‚ÌcurPos‚Ü‚Å‚Ì“à—e‚ğ•\¦
+        // ï¿½ï¿½ï¿½İ‚Ìƒyï¿½[ï¿½Wï¿½icurPageï¿½jï¿½ï¿½curPosï¿½Ü‚Å‚Ì“ï¿½ï¿½eï¿½ï¿½\ï¿½ï¿½
         for (int i=0; i<curPos; i++) {
             char c = text[curPage * MAX_CHAR_IN_PAGE + i];
             int dx = textRect.x + MessageEngine.FONT_WIDTH * (i % MAX_CHAR_IN_LINE);
@@ -103,7 +103,7 @@ public class MessageWindow {
             messageEngine.drawCharacter(dx, dy, c, g);
         }
 
-        // ÅŒã‚Ìƒy[ƒW‚Å‚È‚¢ê‡‚Í–îˆó‚ğ•\¦‚·‚é
+        // ï¿½ÅŒï¿½Ìƒyï¿½[ï¿½Wï¿½Å‚È‚ï¿½ï¿½ê‡ï¿½Í–ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (curPage < maxPage && nextFlag) {
             int dx = textRect.x + (MAX_CHAR_IN_LINE / 2) * MessageEngine.FONT_WIDTH - 8;
             int dy = textRect.y + (LINE_HEIGHT + MessageEngine.FONT_HEIGHT) * 3;
@@ -112,28 +112,28 @@ public class MessageWindow {
     }
 
     /**
-     * ƒƒbƒZ[ƒW‚ğƒZƒbƒg‚·‚é
-     * @param msg ƒƒbƒZ[ƒW
+     * ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
+     * @param msg ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
      */
     public void setMessage(String msg) {
         curPos = 0;
         curPage = 0;
         nextFlag = false;
 
-        // ‘SŠpƒXƒy[ƒX‚Å‰Šú‰»
+        // ï¿½Sï¿½pï¿½Xï¿½yï¿½[ï¿½Xï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½
         for (int i=0; i<text.length; i++) {
-            text[i] = '@';
+            text[i] = 'ã€€';
         }
 
-        int p = 0;  // ˆ—’†‚Ì•¶šˆÊ’u
+        int p = 0;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Ê’u
         for (int i=0; i<msg.length(); i++) {
             char c = msg.charAt(i);
             if (c == '\\') {
                 i++;
-                if (msg.charAt(i) == 'n') {  // ‰üs
+                if (msg.charAt(i) == 'n') {  // ï¿½ï¿½ï¿½s
                     p += MAX_CHAR_IN_LINE;
                     p = (p / MAX_CHAR_IN_LINE) * MAX_CHAR_IN_LINE;
-                } else if (msg.charAt(i) == 'f') {  // ‰üƒy[ƒW
+                } else if (msg.charAt(i) == 'f') {  // ï¿½ï¿½ï¿½yï¿½[ï¿½W
                     p += MAX_CHAR_IN_PAGE;
                     p = (p / MAX_CHAR_IN_PAGE) * MAX_CHAR_IN_PAGE;
                 }
@@ -144,23 +144,23 @@ public class MessageWindow {
         
         maxPage = p / MAX_CHAR_IN_PAGE;
         
-        // •¶š‚ğ—¬‚·ƒ^ƒXƒN‚ğ‹N“®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ğ—¬‚ï¿½ï¿½^ï¿½Xï¿½Nï¿½ï¿½ï¿½Nï¿½ï¿½
         task = new DrawingMessageTask();
         timer.schedule(task, 0L, 20L);
     }
     
     /**
-     * ƒƒbƒZ[ƒW‚ğæ‚Éi‚ß‚é
-     * @return ƒƒbƒZ[ƒW‚ªI—¹‚µ‚½‚çtrue‚ğ•Ô‚·
+     * ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Éiï¿½ß‚ï¿½
+     * @return ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½Ô‚ï¿½
      */
     public boolean nextMessage() {
-        // Œ»İƒy[ƒW‚ªÅŒã‚Ìƒy[ƒW‚¾‚Á‚½‚çƒƒbƒZ[ƒW‚ğI—¹‚·‚é
+        // ï¿½ï¿½ï¿½İƒyï¿½[ï¿½Wï¿½ï¿½ï¿½ÅŒï¿½Ìƒyï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½çƒï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (curPage == maxPage) {
             task.cancel();
-            task = null;  // ƒ^ƒXƒN‚ÍI—¹‚µ‚È‚¢‚Æ“®‚«‘±‚¯‚é
+            task = null;  // ï¿½^ï¿½Xï¿½Nï¿½ÍIï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Æ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             return true;
         }
-        // ¥‚ª•\¦‚³‚ê‚Ä‚È‚¯‚ê‚ÎŸƒy[ƒW‚Ö‚¢‚¯‚È‚¢
+        // ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚È‚ï¿½ï¿½ï¿½Îï¿½ï¿½yï¿½[ï¿½Wï¿½Ö‚ï¿½ï¿½ï¿½ï¿½È‚ï¿½
         if (nextFlag) {
             curPage++;
             curPos = 0;
@@ -170,32 +170,32 @@ public class MessageWindow {
     }
 
     /**
-     * ƒEƒBƒ“ƒhƒE‚ğ•\¦
+     * ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½\ï¿½ï¿½
      */
     public void show() {
         isVisible = true;
     }
 
     /**
-     * ƒEƒBƒ“ƒhƒE‚ğ‰B‚·
+     * ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½Bï¿½ï¿½
      */
     public void hide() {
         isVisible = false;
     }
     
     /**
-     * ƒEƒBƒ“ƒhƒE‚ğ•\¦’†‚©
+     * ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public boolean isVisible() {
         return isVisible;
     }
     
-    // ƒƒbƒZ[ƒW‚ğ1•¶š‚¸‚Â‡‚É•`‰æ‚·‚éƒ^ƒXƒN
+    // ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âï¿½ï¿½É•`ï¿½æ‚·ï¿½ï¿½^ï¿½Xï¿½N
     class DrawingMessageTask extends TimerTask {
         public void run() {
             if (!nextFlag) {
-                curPos++;  // 1•¶š‘‚â‚·
-                // 1ƒy[ƒW‚Ì•¶š”‚É‚È‚Á‚½‚ç¥‚ğ•\¦
+                curPos++;  // 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â‚·
+                // 1ï¿½yï¿½[ï¿½Wï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½ç¥ï¿½ï¿½\ï¿½ï¿½
                 if (curPos % MAX_CHAR_IN_PAGE == 0) {
                     nextFlag = true;
                 }

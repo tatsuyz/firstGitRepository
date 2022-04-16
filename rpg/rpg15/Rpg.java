@@ -13,17 +13,17 @@ import javax.swing.JFrame;
  */
 public class Rpg extends JFrame {
     public Rpg() {
-        // ƒ^ƒCƒgƒ‹‚ğİ’è
-        setTitle("ƒƒbƒZ[ƒWƒEƒBƒ“ƒhƒE‚Ì•\¦");
+        // ï¿½^ï¿½Cï¿½gï¿½ï¿½ï¿½ï¿½İ’ï¿½
+        setTitle("ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½Ì•ï¿½ï¿½");
 
-        // ƒpƒlƒ‹‚ğì¬
+        // ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ì¬
         MainPanel panel = new MainPanel();
         Container contentPane = getContentPane();
         contentPane.add(panel);
 
         setResizable(false);
 
-        // ƒpƒlƒ‹ƒTƒCƒY‚É‡‚í‚¹‚ÄƒtƒŒ[ƒ€ƒTƒCƒY‚ğ©“®İ’è
+        // ï¿½pï¿½lï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½Éï¿½ï¿½í‚¹ï¿½Äƒtï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½
         pack();
     }
 
